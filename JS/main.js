@@ -18,12 +18,9 @@ boxes.forEach((box, i)=> {
             if (choosenCards[0].childNodes[3].childNodes[0].src === choosenCards[1].childNodes[3].childNodes[0].src) {
                 choosenCards[0].classList.add("done");
                 choosenCards[1].classList.add("done");
-                // choosenCards = [];
             }else if (choosenCards[0].childNodes[3].childNodes[0].src !== choosenCards[1].childNodes[3].childNodes[0].src) {
                 choosenCards[0].classList.add("diff");
                 choosenCards[1].classList.add("diff");
-                // choosenCards = [];
-                console.log("hi");
             }
             setTimeout(function() {
                 choosenCards[0].classList.remove("diff");
