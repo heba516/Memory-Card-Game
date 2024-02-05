@@ -2,8 +2,9 @@ let imagesSrc = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8];
 imagesSrc.sort(() => Math.random() > 0.5 ? 1 : -1);
 
 let boxes = document.querySelectorAll(".col-sm-3");
-let counter = 0;
 let choosenCards = [];
+
+let click = true;
 
 boxes.forEach((box, i)=> {    
     let image = box.querySelector(".back img");
@@ -11,10 +12,18 @@ boxes.forEach((box, i)=> {
 
     
     box.addEventListener("click", (e)=> {
+
+        if (!click) {
+            return;
+        }
+
         box.classList.add("flip");
         choosenCards.push(box);
 
         if (choosenCards.length === 2) {
+
+            click = false;
+
             if (choosenCards[0].childNodes[3].childNodes[0].src === choosenCards[1].childNodes[3].childNodes[0].src) {
                 choosenCards[0].classList.add("done");
                 choosenCards[1].classList.add("done");
@@ -28,6 +37,8 @@ boxes.forEach((box, i)=> {
                 choosenCards[0].classList.remove("flip");
                 choosenCards[1].classList.remove("flip");
                 choosenCards = [];
+
+                click = true;
             }, 600);
         }
     });
