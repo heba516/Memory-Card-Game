@@ -9,7 +9,7 @@ body {
 }
 
 .game-box {
-    max-width: fit-content;
+    width: 472px;
     margin-left: 50%;
     margin-top: 10%;
     transform: translateX(-50%);
@@ -24,6 +24,12 @@ body {
     -ms-transform: translateX(-50%);
     -o-transform: translateX(-50%);
 }
+@media (max-width: 500px) {
+    .game-box {
+        width: 248px;
+    }
+}
+
 
 .game-box .row>div, .front, .back {
     display: flex;
